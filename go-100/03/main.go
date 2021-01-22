@@ -1,4 +1,3 @@
-//Identifiants exportés en dehors de leur package
 package main
 
 import (
@@ -6,9 +5,9 @@ import (
 	"math"
 )
 
-var jeSuisInvisibleEnDehorsDuPackage int
+var iAmInvisibleOutsideOfMyPackage int
 
-var JeSuisVisibleEnDehorsDuPackage int
+var IAmVisibleOutsideOfMyPackage int
 
 func main() {
 	fmt.Println(math.pi) //cannot refer to unexported name math.pi

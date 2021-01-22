@@ -1,6 +1,6 @@
 <!-- .slide: class="speaker-slide" -->
 
-# Présentation
+# Presentation
 
 ![company](./assets/common/images/logo_sfeir_blanc.png)
 
@@ -8,7 +8,7 @@
 
 <h2>Sébastien <span>FRIESS</span></h2>
 
-### Developer backend
+### Backend Developer
 
 <!-- .element: class="icon-rule icon-first" -->
 

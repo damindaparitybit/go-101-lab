@@ -1,29 +1,21 @@
-<!-- .slide: class="first-slide" sfeir-level="1" sfeir-techno="GO" -->
+<!-- .slide: class="first-slide" sfeir-level="1" sfeir-techno="Go" -->
 
-# **Welcome to Sfeir School**
-
-## **GO 100**
+# **Welcome to Go 101**
 
 ##==##
 
-<!-- .slide: class="school-presentation" -->
-##==##
+# Code lab program
 
-# Déroulement de la formation
+- Timing : 11h - 12h30 / 13h30 - 15h
 
+- Do we have a break ?
 
-- C'est quand la pause ?
+- Lunch, who said lunch ?
 
-- Quand est-ce qu'on mange ?
-
-- Tour de table ...
-
-- Feuille de présence
+- Getting to know each other ...
 
 
 
 Notes:
-- 1h30 / 2h en fonctions des parties
-- 12h sandwich à l’extérieur
-- Théorie, exo, qqun correction au tableau
+- 3h, 1h lunch
 

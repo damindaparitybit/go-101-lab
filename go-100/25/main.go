@@ -2,24 +2,18 @@ package main
 
 import "fmt"
 
-type MonInterface interface {
-	M()
-}
-
-type MaStructure struct {
-	S string
-}
-
-// Le type *MaStructure implémente I
-func (t *MaStructure) M() {
-	fmt.Println(t.S)
-}
-
 func main() {
-	t := MaStructure{"hello"}
-	maFonction(t) // erreur de compilation : le type MaStructure n'implémente pas MonInterface.
-}
+	var i interface{} = "hello"
 
-func maFonction(param MonInterface) {
-	fmt.Printf("(%v, %T)\n", param, param)
+	s := i.(string)
+	fmt.Println(s)
+
+	s, ok := i.(string)
+	fmt.Println(s, ok)
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok)
+
+	f = i.(float64) // panic
+	fmt.Println(f)
 }

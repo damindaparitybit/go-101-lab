@@ -1,4 +1,3 @@
-//Les fonctions
 package main
 
 import (
@@ -27,16 +26,6 @@ func divide(a, b int) (int, error) {
 		return 0, errors.New("cannot divide by zero")
 	}
 	return a / b, nil
-}
-
-//divide2 does exactly the same thing than divide but returned values are named here.
-func divide2(a, b int) (result int, err error) {
-	if b == 0 {
-		err = errors.New("cannot divide by zero")
-		return
-	}
-	result = a / b
-	return
 }
 
 //main function

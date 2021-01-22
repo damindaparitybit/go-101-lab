@@ -1,25 +1,28 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
-func say(s string, ch chan string) {
-	fmt.Println("ch <- s attend que quelqu'un lise le canal ch.")
-	ch <- s
-	fmt.Println("s a été envoyée sur ch.")
+func say(s string, n int, ch chan string) {
+
+	for i := 0; i < n; i++ {
+		ch <- s
+	}
+	ch <- "Goodbye"
+	close(ch)
 }
 
 func main() {
 	ch := make(chan string)
-	go say("Bonjour", ch)
+	go say("Hello", 3, ch)
 
-	time.Sleep(10 * time.Millisecond)
-	fmt.Println("s := <-ch attend que quelqu'un envoie des données sur le canal ch.")
-
-	s := <-ch
-
-	time.Sleep(10 * time.Millisecond)
-	fmt.Printf("La string '%s' a été lue depuis le canal ch.\n", s)
+	s, ok := <-ch
+	fmt.Printf("%q %v\n", s, ok)
+	s, ok = <-ch
+	fmt.Printf("%q %v\n", s, ok)
+	s, ok = <-ch
+	fmt.Printf("%q %v\n", s, ok)
+	s, ok = <-ch
+	fmt.Printf("%q %v\n", s, ok)
+	s, ok = <-ch
+	fmt.Printf("%q %v\n", s, ok)
 }

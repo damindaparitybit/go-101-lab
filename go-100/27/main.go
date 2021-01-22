@@ -1,19 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+func say(s string) {
+	for i := 0; i < 6; i++ {
+		time.Sleep(1 * time.Millisecond)
+		fmt.Println(s)
+	}
+}
 
 func main() {
-	var i interface{} = "hello"
-
-	s := i.(string)
-	fmt.Println(s)
-
-	s, ok := i.(string)
-	fmt.Println(s, ok)
-
-	f, ok := i.(float64)
-	fmt.Println(f, ok)
-
-	f = i.(float64) // panic
-	fmt.Println(f)
+	go say("I talk whenever I want !")
+	say("Stop interrupting me !")
 }

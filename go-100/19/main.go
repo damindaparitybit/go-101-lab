@@ -5,43 +5,26 @@ import (
 	"math"
 )
 
-// déclaration d'un nouveau type de fonction
-type NumberFunc func (float64, float64) float64
-
-//compute prend une fonction en paramètre (qui prend deux float64 en paramètre et retourne un float64)
-func compute(fn NumberFunc) float64 {
-	return fn(3, 4)
+type Vertex struct {
+	X, Y float64
 }
 
-//added retourne une closure, c'est à dire une méthode liée à une variable en dehors de son scope.
-func adder() func(int) int {
-	sum := 0
-	return func(x int) int {
-		sum += x
-		return sum
-	}
+//Scale uses a pointer receiver as it has to modify the value of v.
+func (v *Vertex) Scale(f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
+}
+
+//Abs uses a value receiver. In a real case we would use a pointer receiver here also.
+//it would avoid the copy of of v for each call.
+func (v Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
 func main() {
-
-	// déclaration et assignation de fonction
-	hypot := func(x, y float64) float64 {
-		return math.Sqrt(x*x + y*y)
-	}
-
-	// utilisation de la fonctiona déclarée
-	fmt.Println(hypot(5, 12))
-
-	// utilisation de compute
-	fmt.Println(compute(hypot))
-	fmt.Println(compute(math.Pow))
-
-	// closures
-	pos, neg := adder(), adder()
-	for i := 0; i < 10; i++ {
-		fmt.Println(
-			pos(i),
-			neg(-2*i),
-		)
-	}
+	v := Vertex{3, 4}
+	pv := &v
+	fmt.Printf("Before scaling: %+v, Abs: %v\n", v, v.Abs())
+	pv.Scale(5)
+	fmt.Printf("After scaling: %+v, Abs: %v\n", v, v.Abs())
 }

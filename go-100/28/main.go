@@ -1,20 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
-func do(i interface{}) {
-	switch v := i.(type) {
-	case int:
-		fmt.Printf("Le double de %v est %v\n", v, v*2)
-	case string:
-		fmt.Printf("%q a une longueur de %v octets\n", v, len(v))
-	default:
-		fmt.Printf("Je ne connais pas le type %T!\n", v)
-	}
+func say(s string, ch chan string) {
+	fmt.Println("ch <- s waiting for someone to read the channel ch.")
+	ch <- s
+	fmt.Println("s  has been sent to the channel.")
 }
 
 func main() {
-	do(21)
-	do("hello")
-	do(true)
+	ch := make(chan string)
+	go say("Hello", ch)
+
+	time.Sleep(10 * time.Millisecond)
+	fmt.Println("s := <-ch waiting for some data on ch.")
+
+	s := <-ch
+
+	time.Sleep(10 * time.Millisecond)
+	fmt.Printf("String '%s' has been read on channel ch.\n", s)
 }

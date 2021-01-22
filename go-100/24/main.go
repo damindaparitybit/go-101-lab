@@ -2,47 +2,17 @@ package main
 
 import "fmt"
 
-// Aigle est une structure représentant un aigle
-type Aigle struct{}
-
-func (a Aigle) Mange() {
-	fmt.Println("L'aigle mange.")
-}
-func (a Aigle) Vole() {
-	fmt.Println("L'aigle vole.")
-}
-
-// A380 est une structure représentant un Airbus A380
-type A380 struct{}
-
-func (a A380) Vole() {
-	fmt.Println("L'A380 vole.")
-}
-
-// Oiseau est une interface qui définit le comportement d'un oiseau qui mange et vole.
-type Oiseau interface {
-	Mange()
-	Vole()
-}
-
-// Avion est une interface qui définit le comportement d'un avion qui vole.
-type Volant interface {
-	Vole()
-}
-
 func main() {
-	// Aigle implémente bien l'interface Oiseau
-	var oiseau Oiseau = Aigle{}
+	var i interface{}
+	describe(i)
 
-	// A380 implémente bien l'interface Volant
-	var avion Volant = A380{}
+	i = 42
+	describe(i)
 
-	oiseau.Vole()
-	oiseau.Mange()
-	avion.Vole()
+	i = "hello"
+	describe(i)
+}
 
-	// Aigle implémente aussi l'interface Volant
-	avion = Aigle{}
-
-	avion.Vole()
+func describe(i interface{}) {
+	fmt.Printf("(%v, %T)\n", i, i)
 }

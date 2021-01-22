@@ -1,14 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
+
+//Distance in meters
+type Distance float64
+
+//Time in seconds
+type Time float64
+
+//Speed in m/s
+type Speed float64
+
+func computeSpeed(d Distance, t Time) (Speed, error) {
+	if t == 0 {
+		return 0, errors.New("impossible to compute a speed with a null time")
+	}
+	return Speed(float64(d) / float64(t)), nil
+}
 
 func main() {
-	fmt.Println("ready...")
-	defer fmt.Println("done")
+	// _ allows to ignore the second value, here the error
+	speed, _ := computeSpeed(130000, 3600)
 
-	for i := 0; i < 10; i++ {
-		defer fmt.Println(i)
-	}
-
-	fmt.Println("go!")
+	fmt.Printf("You are going at %.2f m/s\n", speed)
 }

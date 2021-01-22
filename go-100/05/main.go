@@ -2,15 +2,15 @@ package main
 
 import "fmt"
 
-var a bool = false // déclaration inutilement complète : var name type = expression
-var b = false      // le type est inféré par la valeur initiale
-var c bool         // false par défaut (la "valeur-zéro" d'un booléen est false)
+var a bool = false
+var b = false
+var c bool
 
 func uneFonction() {
-	var w bool = false // déclaration inutilement complète : var name type = expression
-	var x = false      // le type est inféré par la valeur initiale
-	var y bool         // la valeur initiale est la "valeur-zéro" du type de la vairable (la "valeur-zéro" d'un booléen est false)
-	z := false         // déclaration courte : à l'intérieur d'une fonction on peut utiliser := au lieu de var et le type est inféré par la valeur initiale
+	var w bool = false
+	var x = false
+	var y bool
+	z := false
 
 	fmt.Printf("w = %v and its type is %[1]T\n", w)
 	fmt.Printf("x = %v and its type is %[1]T\n", x)
@@ -33,8 +33,8 @@ func main() {
 	fmt.Printf("c = %v and its type is %[1]T\n", c)
 	uneFonction()
 
-	age, nom, enVie := 30, "John", true
-	fmt.Println(age, nom, enVie)
+	age, name, alive := 30, "John", true
+	fmt.Println(age, name, alive)
 
 	fmt.Println(fibonacci(20))
 }

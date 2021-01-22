@@ -2,18 +2,16 @@ package main
 
 import "fmt"
 
-var jours = []string{"lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"}
+type Vertex struct {
+	Lat, Long float64
+}
+
+var m map[string]Vertex
 
 func main() {
-	for i, v := range jours {
-		fmt.Printf("jours[%d] = %s\n", i, v)
+	m = make(map[string]Vertex)
+	m["Bell Labs"] = Vertex{
+		40.68433, -74.39967,
 	}
-
-	puissancesDe2 := make([]int, 10)
-	for i := range puissancesDe2 {
-		puissancesDe2[i] = 1 << uint(i)
-	}
-	for _, value := range puissancesDe2 {
-		fmt.Printf("%d\n", value)
-	}
+	fmt.Println(m["Bell Labs"])
 }

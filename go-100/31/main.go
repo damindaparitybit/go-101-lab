@@ -1,12 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-//Modifiez l'exemple pour trop remplir le buffer et voir ce qui se passe.
+func count(n int, c chan int) {
+	x := 0
+	for i := 0; i < n; i++ {
+		c <- x
+		x++
+	}
+	close(c)
+}
+
 func main() {
-	ch := make(chan int, 2)
-	ch <- 1
-	ch <- 2
-	fmt.Println(<-ch)
-	fmt.Println(<-ch)
+	c := make(chan int, 2)
+	go count(10, c)
+	for i := range c {
+		fmt.Println(i)
+	}
+	fmt.Println("Channel closed, we exit the for loop.")
 }

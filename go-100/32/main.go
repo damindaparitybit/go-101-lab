@@ -1,28 +1,20 @@
 package main
 
-import "fmt"
-
-func say(s string, n int, ch chan string) {
-
-	for i := 0; i < n; i++ {
-		ch <- s
-	}
-	ch <- "Goodbye"
-	close(ch)
-}
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
-	ch := make(chan string)
-	go say("Bonjour", 3, ch)
-
-	s, ok := <-ch
-	fmt.Printf("%q %v\n", s, ok)
-	s, ok = <-ch
-	fmt.Printf("%q %v\n", s, ok)
-	s, ok = <-ch
-	fmt.Printf("%q %v\n", s, ok)
-	s, ok = <-ch
-	fmt.Printf("%q %v\n", s, ok)
-	s, ok = <-ch
-	fmt.Printf("%q %v\n", s, ok)
+	tick := time.Tick(250 * time.Millisecond)
+	boom := time.After(2000 * time.Millisecond)
+	for {
+		select {
+		case <-tick:
+			fmt.Println("tick.")
+		case <-boom:
+			fmt.Println("BOOM!")
+			return
+		}
+	}
 }

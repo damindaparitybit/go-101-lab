@@ -1,18 +1,12 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
-func say(s string) {
-	for i := 0; i < 6; i++ {
-		time.Sleep(1 * time.Millisecond)
-		fmt.Println(s)
-	}
-}
-
+// Modify the example to see what happens if buffer overflows
 func main() {
-	go say("Je parle quand je veux !")
-	say("Arrête de parler en même temps que moi !")
+	ch := make(chan int, 2)
+	ch <- 1
+	ch <- 2
+	fmt.Println(<-ch)
+	fmt.Println(<-ch)
 }

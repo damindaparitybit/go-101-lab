@@ -6,16 +6,16 @@ import (
 )
 
 func main() {
-	fmt.Println("C'est bientôt le weekend ?")
+	fmt.Println("Is it weekend soon ?")
 	today := time.Now().Weekday()
 	switch today {
 	case time.Saturday:
 		fallthrough
 	case time.Sunday:
-		fmt.Println("C'est le weekend !")
+		fmt.Println("It's weekend 😁 !")
 	case time.Friday:
-		fmt.Println("Bientôt, mais pas encore.")
+		fmt.Println("Soon but not yet 😊")
 	default:
-		fmt.Println("Dans trop longtemps.")
+		fmt.Println("Too long before weekend 😢")
 	}
 }

@@ -2,13 +2,16 @@ package main
 
 import "fmt"
 
-const Pi = 3.14
-
 func main() {
-	const World = "世界"
-	fmt.Println("Hello", World)
-	fmt.Println("Happy", Pi, "Day")
+	a := 3
+	b := 5
+	if a < b {
+		fmt.Printf("%d is lower than %d\n", a, b)
+	}
 
-	const Truth = true
-	fmt.Println("Go rules?", Truth)
+	if c := a*2 - b; c < a {
+		fmt.Printf("%d is lower than %d\n", c, a)
+	} else {
+		fmt.Printf("%d is greater than %d\n", c, a)
+	}
 }
