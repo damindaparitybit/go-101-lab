@@ -9,8 +9,8 @@ const speakers = [
 const go100 = [
   ['00-school', ['00-title', ...speakers]],
   ['01-intro', ['00-title', '01-go_purpose']],
-  ['02-installation', ['00-title', '01-env_install']],
-  ['03-let_s_go', ['00-title', '01-basics', '02-if', '03-loops']],
+  ['02-installation', ['00-titles', '01-env_install']],
+  ['03-let_s_go', ['00-titles', '01-basics', '02-if', '03-loops']],
   [
     '04-lets_go_further',
     ['00-title', '01-types_structures', '02-pointers', '03-arrays_slices_map'],

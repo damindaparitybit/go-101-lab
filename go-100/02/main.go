@@ -1,4 +1,3 @@
-//Imports factorisés
 package main
 
 import (

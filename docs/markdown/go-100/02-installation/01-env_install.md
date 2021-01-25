@@ -27,7 +27,7 @@
 ## IDE setup
 
 - Download and install VSC for your OS : [https://code.visualstudio.com](https://code.visualstudio.com/)
-- Install the Go plugin: <img src="./assets/go-100/images/plugins.jpg">, than search for “go”.
+- Install the Go plugin: <img src="./assets/go-100/images/plugin.jpg">, than search for “go”.
 
 ##==##
 
